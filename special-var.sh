@@ -9,3 +9,9 @@ echo "to know your script name : $0"
 echo "to know present directory : $PWD"
 
 echo "home directory of user : $HOME"
+
+echo "pid of current executing script $$"
+
+echo "pid of last executed command $!"
+ 
+ sleep 100 &
