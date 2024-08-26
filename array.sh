@@ -8,3 +8,5 @@ echo "second fruit is : ${FRUITS[1]}"
 echo "third fruit is :${FRUITS[2]}"
 
 echo "all fruits are :${FRUITS[@]}"
+
+echo "size of fruits array is : ${#FRUITS[@]}"
