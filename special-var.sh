@@ -12,6 +12,6 @@ echo "home directory of user : $HOME"
 
 echo "pid of current executing script $$"
 
+sleep 100 &
 echo "pid of last executed command $!"
  
- sleep 100 &
