@@ -21,7 +21,7 @@ if [ $? -ne 0 ]
 then 
     echo "Installing git for u.."
     dnf install git -y
-    validate $? "Installing git"
+    VALIDATE $? "Installing git"
 else
     echo "Git is already installed"
 fi
@@ -31,7 +31,7 @@ if [ $? -ne 0 ]
 then 
     echo "MYSQL installation is in process"
     dnf install mysql -y
-    validate $? "Installing mysql"
+    VALIDATE $? "Installing mysql"
 else
     echo "MYSQL is already installed"
 fi
