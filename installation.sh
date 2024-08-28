@@ -6,6 +6,7 @@ then
     echo "Please run the script with root user privilageous"
     exit 1
 fi
+
 dnf list installed git
 if [ $? -ne 0 ]
 then 
@@ -21,6 +22,7 @@ then
 else
     echo "Git is already installed"
 fi
+
 dnf list installed mysql
 if [ $? -ne 0 ]
 then 
@@ -28,10 +30,10 @@ then
     dnf install mysql -y
     if [ $? -ne 0 ]
     then
-       echo "MYSQL installation is not successfull"
-       exit 1
+        echo "MYSQL installation is not successfull"
+        exit 1
     else      
-       echo "MYSQL is successfully installed"
+        echo "MYSQL is successfully installed"
     fi
 else
     echo "MYSQL is already installed "
