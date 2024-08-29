@@ -1,41 +1,36 @@
-#!/bin/bash
-
-USERID=$(id -u)
-
-VALIDATE () {
-    if [ $1 -ne 0 ]
-     then 
-         echo " $2 installation is not successful check it.."
-         exit 1
-    else
-        echo " $2 is installed successfully "
-    fi
-}
- 
-
+USERID=(id -u)
 if [ $USERID -ne 0 ]
-then 
-    echo "please run the script with root user privilages"
+then
+    echo " please run this script with root privilages "
     exit 1
 fi
 
+VALIDATE(){
+    if [ $1 -ne 0 ]
+     then 
+         echo "$2 installation is not success check it"
+         exit 1
+    else
+        echo "$2 installation is success"
+    fi
+}
+
 dnf list installed git
- if [ $? -ne 0 ]
- then
-     echo "Git is not installed  going to install it.."
+if [ $? -ne 0 ]
+then
+     echo "git is not installed going to install it"
      dnf install git -y
-     VALIDATE $? "git"
-else 
-    echo "Git is already installed nothing to do "
- fi
+     validate $? "Git"
+else
+    echo "git is already installed nothing to do.."
 
- dnf list installed mysql
- if [ $? -ne 0 ]
- then
-     echo " Mysql is not installed going to install it.."
+
+dnf list installed mysql
+if [ $? -ne 0 ]
+then
+     echo "mysql is not installed going to install it"
      dnf install mysql -y
-     VALIDATE $? "Mysql"
-
-else 
-    echo " Mysql is already installed nothing to do"
- fi
+     validate $? "mysql"
+else
+    echo "mysql is already installed nothing to do.."
+fi

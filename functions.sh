@@ -4,7 +4,7 @@ USERID=$(id -u)
 VALIDATE (){
     if [ $1 -ne 0 ]
     then 
-        echo "$2 is  Failed.."
+        echo -e "$2 is  Failed.."
 
     else
         echo "$2 is successful.."
