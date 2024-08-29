@@ -1,4 +1,4 @@
-NUMBER=$1
+number=$1
 
 if [ $number > 20] 
 then 
