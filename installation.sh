@@ -23,6 +23,7 @@ then
      validate $? "Git"
 else
     echo "git is already installed nothing to do.."
+fi
 
 
 dnf list installed mysql
