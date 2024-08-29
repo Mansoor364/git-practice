@@ -7,7 +7,7 @@ fi
 
 VALIDATE(){
     if [ $1 -ne 0 ]
-     then 
+    then 
          echo "$2 installation is not success check it"
          exit 1
     else
