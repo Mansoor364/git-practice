@@ -1,6 +1,6 @@
 NUMBER=$1
 
-if 
+if [ $number > 20] 
 then 
     echo "$number is greater than 20"
 else 
