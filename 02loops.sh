@@ -1,4 +1,9 @@
 #!/bin/bash
+R="\e[31m"
+G="\e[32m"
+Y="\e[33m"
+N="\e[0m"
+
 USERID=$(id -u)
 
 CHECK_ROOT(){
@@ -13,10 +18,10 @@ CHECK_ROOT
 VALIDATE (){
     if [ $1 -ne 0 ]
     then 
-        echo -e "$2 is  Failed.."
+        echo -e "$2 is $R Failed.. $N"
 
     else
-        echo "$2 is successful.."
+        echo -e "$2 is $G successful.. $N"
     fi
 }
 
