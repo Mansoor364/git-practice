@@ -1,8 +1,3 @@
-number=$1
+#!/bin/bash
 
-if [ $number > 20 ] 
-then 
-    echo "$number is greater than 20"
-else 
-    echo "$number is less than 20"
-fi
+dnf install git -y 
