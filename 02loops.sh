@@ -25,16 +25,16 @@ VALIDATE (){
     fi
 }
 
-# loops.sh git mysql postfix nginx
+# sh loops.sh git mysql postfix nginx
 for package in $@  # $@ -- all arguments passed to it
 do
     dnf list installed $package
     if [ $? -ne 0 ]
     then 
-        echo "Installing $package for u.."
-        dnf install $@ -y
+        echo " Installing $package for u.."
+        dnf install $package -y
         VALIDATE $? "$package"
     else
-        echo "$package is already installed nothing to do "
+        echo "$package is already installed"
     fi
-done 
+done
