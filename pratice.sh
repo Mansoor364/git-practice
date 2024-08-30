@@ -45,7 +45,7 @@ do
     dnf list installed $package &>>$LOG_FILE
     if [ $? -ne 0 ]
     then
-        echo "$package is installing.."
+        echo "$package is installing.." &>>$LOG_FILE
         dnf install $package -y &>>$LOG_FILE
         VALIDATE $? "$package"
     else
