@@ -7,19 +7,6 @@ LOG_FILE="$LOGS_FOLDER/$SCRIPT_NAME-$TIME_STAMP.log"
 
 mkdir -p $LOGS_FOLDER
 
-USAGE () {
-    echo -e " $R USAGE:: $N sudo sh 01-redirectors.sh package1 package2 ... "
-    exit 1
-}
-
-CHECK_ROOT 
-
-if [ $# -eq 0 ]
-then
-    USAGE
-fi
-
-
 R="\e[31m"
 G="\e[32m"
 Y="\e[33m"
@@ -44,6 +31,17 @@ VALIDATE (){
     fi
 }
 
+USAGE (){
+    echo -e " $R USAGE:: $N sudo sh 01redirectors.sh package1 package2 .. "
+    exit 1
+}
+
+CHECK_ROOT 
+if [ $# -eq 0 ]
+then 
+    USAGE
+fi
+    
 # sh loops.sh git mysql postfix nginx
 for package in $@  # $@ -- all arguments passed to it
 do
