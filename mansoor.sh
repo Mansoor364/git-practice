@@ -49,7 +49,7 @@ do
     then 
         echo -e "$package  $Y is not installed going to install it.. $N" | tee -a $LOG_FILE
         dnf install $package -y &>>$LOG_FILE
-        VALIDATE $? "Git"
+        VALIDATE $? "$package"
     else
         echo -e "$package $Y is already installed nothing to do.. $N" | tee -a $LOG_FILE
     fi
