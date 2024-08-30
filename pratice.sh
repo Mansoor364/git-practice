@@ -14,12 +14,6 @@ USAGE (){
     echo -e " $R USAGE:: sudo sh practice.sh package1 package2 $N " &>>$LOG_FILE
 }
 
-CHECK_ROOT
-if [ $# -eq 0 ]
-then 
-    USAGE
-fi
-
 USERID=$(id -u)
 CHECK_ROOT (){
     if [ $? -ne 0 ]
@@ -28,6 +22,12 @@ CHECK_ROOT (){
         exit 1
     fi
 }
+
+CHECK_ROOT
+if [ $# -eq 0 ]
+then 
+    USAGE
+fi
 
 VALIDATE(){
     if [ $1 -ne 0 ]
