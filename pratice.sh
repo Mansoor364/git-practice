@@ -10,10 +10,6 @@ G="\e[32m"
 Y="\e[33m"
 N="\e[31m"
 
-USAGE (){
-    echo -e " $R USAGE:: sudo sh practice.sh package1 package2 $N " &>>$LOG_FILE
-}
-
 USERID=$(id -u)
 CHECK_ROOT (){
     if [ $? -ne 0 ]
@@ -21,6 +17,10 @@ CHECK_ROOT (){
         echo -e "$R Please run the script with root privilages $N"  &>>$LOG_FILE
         exit 1
     fi
+}
+
+USAGE (){
+    echo -e " $R USAGE:: sudo sh practice.sh package1 package2 $N " &>>$LOG_FILE
 }
 
 CHECK_ROOT
