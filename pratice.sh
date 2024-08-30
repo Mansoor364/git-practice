@@ -9,7 +9,7 @@ USERID=$(id -u)
 R="\e[31m"
 G="\e[32m"
 Y="\e[33m"
-N="\e[31m"
+N="\e[0m"
 
 CHECK_ROOT (){
     if [ $USERID -ne 0 ]
@@ -28,7 +28,6 @@ VALIDATE(){
         echo -e "$2 is installed $G successfully $N " &>>$LOG_FILE
     fi
 }
-
 
 USAGE (){
     echo -e " $R USAGE:: $N sudo sh pratice.sh package1 package2 " &>>$LOG_FILE
