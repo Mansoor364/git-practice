@@ -19,16 +19,6 @@ CHECK_ROOT (){
     fi
 }
 
-USAGE (){
-    echo -e " $R USAGE:: sudo sh practice.sh package1 package2 $N " &>>$LOG_FILE
-}
-
-CHECK_ROOT
-if [ $# -eq 0 ]
-then 
-    USAGE
-fi
-
 VALIDATE(){
     if [ $1 -ne 0 ]
     then  
@@ -38,6 +28,17 @@ VALIDATE(){
         echo -e "$2 is installed $G successfully $N " &>>$LOG_FILE
     fi
 }
+
+
+USAGE (){
+    echo -e " $R USAGE:: sudo sh practice.sh package1 package2 $N " &>>$LOG_FILE
+}
+
+CHECK_ROOT
+if [ $# -eq 0 ]
+then 
+    USAGE
+fi
 
 
 for package in $@
