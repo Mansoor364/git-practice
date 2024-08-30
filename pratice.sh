@@ -5,14 +5,14 @@ TIME_STAMP=$(date +%Y-%m-%d-%H-%M-%S)
 LOG_FILE="$LOGS_FOLDER/$SCRIPT_NAME-$TIME_STAMP.log"
 mkdir -p $LOGS_FOLDER
 
+USERID=$(id -u)
 R="\e[31m"
 G="\e[32m"
 Y="\e[33m"
 N="\e[31m"
 
-USERID=$(id -u)
 CHECK_ROOT (){
-    if [ $? -ne 0 ]
+    if [ $USERID -ne 0 ]
     then
         echo -e "$R Please run the script with root privilages $N"  &>>$LOG_FILE
         exit 1
@@ -31,7 +31,7 @@ VALIDATE(){
 
 
 USAGE (){
-    echo -e " $R USAGE:: sudo sh pratice.sh package1 package2 $N " &>>$LOG_FILE
+    echo -e " $R USAGE:: $N sudo sh pratice.sh package1 package2 " &>>$LOG_FILE
     exit 1
 }
 
