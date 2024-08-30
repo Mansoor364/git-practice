@@ -20,24 +20,25 @@ CHECK_ROOT(){
     fi
 }
 
-VALIDATE (){
+VALIDATE(){
     if [ $1 -ne 0 ]
     then 
-        echo -e "$2 is $R Failed.. $N" &>>LOG_FILE | tee -a LOG_FILE
+        echo -e "$2 is $R Failed.. $N" &>>$LOG_FILE | tee -a $LOG_FILE
         exit 1
     else
-        echo -e "$2 is $G successful.. $N" &>>LOG_FILE | tee -a LOG_FILE
+        echo -e "$2 is $G successful.. $N" &>>$LOG_FILE | tee -a $LOG_FILE
     fi
 }
 
-USAGE (){
+USAGE(){
     echo -e " $R USAGE:: $N sudo sh 01redirectors.sh package1 package2 .. "
     exit 1
 }
 
-echo "script started executing at : $(date)" | tee -a LOG_FILE
+echo "script started executing at : $(date)" | tee -a $LOG_FILE
 
 CHECK_ROOT 
+
 if [ $# -eq 0 ]
 then 
     USAGE
@@ -53,6 +54,6 @@ do
         dnf install $package -y  &>>$LOG_FILE
         VALIDATE $? "$package"   
     else
-        echo -e " $package $Y is already installed $N" | tee -a $LOG_FILE
+        echo -e " $package  is already $Y installed  nothing to do $N" | tee -a $LOG_FILE
     fi
 done
