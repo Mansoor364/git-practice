@@ -31,10 +31,12 @@ VALIDATE(){
 
 
 USAGE (){
-    echo -e " $R USAGE:: sudo sh practice.sh package1 package2 $N " &>>$LOG_FILE
+    echo -e " $R USAGE:: sudo sh pratice.sh package1 package2 $N " &>>$LOG_FILE
+    exit 1
 }
 
 CHECK_ROOT
+
 if [ $# -eq 0 ]
 then 
     USAGE
